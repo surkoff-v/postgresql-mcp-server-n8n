@@ -3,6 +3,11 @@
 
 A Model Context Protocol (MCP) server that provides comprehensive PostgreSQL database management capabilities for AI assistants.
 
+<a href="https://glama.ai/mcp/servers/@HenkDz/postgresql-mcp-server">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@HenkDz/postgresql-mcp-server/badge" alt="PostgreSQL Server MCP server" />
+</a>
+
+## Features
 **🚀 What's New**: This server has been completely redesigned from 46 individual tools to 17 intelligent tools through consolidation (34→8 meta-tools) and enhancement (+4 new tools), providing better AI discovery while adding powerful data manipulation and comment management capabilities.
 
 ## Quick Start
