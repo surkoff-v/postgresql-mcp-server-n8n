@@ -14,6 +14,7 @@ const jsonValue = z.union([
   z.array(z.any())
 ]);
 
+
 // ===== EXECUTE QUERY TOOL (SELECT operations) =====
 
 const ExecuteQueryInputSchema = z.object({
