@@ -1,6 +1,6 @@
 {
   "name": "@surkoffv/postgres-mcp-server",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "A Model Context Protocol (MCP) server that provides comprehensive PostgreSQL database management capabilities for AI assistants with n8n fix",
   "main": "build/index.js",
   "types": "build/index.d.ts",

@@ -4,15 +4,16 @@ import { McpError, ErrorCode } from '@modelcontextprotocol/sdk/types.js';
 import type { PostgresTool, ToolOutput, GetConnectionStringFn } from '../types/tool.js';
 
 // Helper type for JSON values that can be used as SQL parameters
-// Supports: strings, numbers, booleans, null, objects, and arrays
+// Supports: strings, numbers, booleans, null, and objects
 const jsonValue = z.union([
   z.string(),
   z.number(),
   z.boolean(),
   z.null(),
-  z.record(z.any()),
-  z.array(z.any())
+  z.record(z.any())
 ]);
+
+type JsonValue = z.infer<typeof jsonValue>;
 
 
 // ===== EXECUTE QUERY TOOL (SELECT operations) =====
@@ -21,7 +22,7 @@ const ExecuteQueryInputSchema = z.object({
   connectionString: z.string().optional().describe('PostgreSQL connection string (optional)'),
   operation: z.enum(['select', 'count', 'exists']).describe('Query operation: select (fetch rows), count (count rows), exists (check existence)'),
   query: z.string().describe('SQL SELECT query to execute'),
-  parameters: z.array(z.unknown()).optional().default([]).describe('Parameter values for prepared statement placeholders ($1, $2, etc.)'),
+  parameters: z.array(jsonValue).optional().default([]).describe('Parameter values for prepared statement placeholders ($1, $2, etc.)'),
   limit: z.number().optional().describe('Maximum number of rows to return (safety limit)'),
   timeout: z.number().optional().describe('Query timeout in milliseconds')
 });
@@ -113,7 +114,7 @@ export const executeQueryTool: PostgresTool = {
       connectionString?: string;
       operation: 'select' | 'count' | 'exists';
       query: string;
-      parameters?: unknown[];
+      parameters?: JsonValue[];
       limit?: number;
       timeout?: number;
     };
@@ -168,7 +169,7 @@ const ExecuteMutationInputSchema = z.object({
   connectionString: z.string().optional().describe('PostgreSQL connection string (optional)'),
   operation: z.enum(['insert', 'update', 'delete', 'upsert']).describe('Mutation operation: insert (add rows), update (modify rows), delete (remove rows), upsert (insert or update)'),
   table: z.string().describe('Table name for the operation'),
-  data: z.record(z.unknown()).optional().describe('Data object with column-value pairs (required for insert/update/upsert)'),
+  data: z.record(jsonValue).optional().describe('Data object with column-value pairs (required for insert/update/upsert)'),
   where: z.string().optional().describe('WHERE clause for update/delete operations (without WHERE keyword)'),
   conflictColumns: z.array(z.string()).optional().describe('Columns for conflict resolution in upsert (ON CONFLICT)'),
   returning: z.string().optional().describe('RETURNING clause to get back inserted/updated data'),
@@ -325,7 +326,7 @@ export const executeMutationTool: PostgresTool = {
       connectionString?: string;
       operation: 'insert' | 'update' | 'delete' | 'upsert';
       table: string;
-      data?: Record<string, unknown>;
+      data?: Record<string, JsonValue>;
       where?: string;
       conflictColumns?: string[];
       returning?: string;
@@ -376,7 +377,7 @@ export const executeMutationTool: PostgresTool = {
 const ExecuteSqlInputSchema = z.object({
   connectionString: z.string().optional().describe('PostgreSQL connection string (optional)'),
   sql: z.string().describe('SQL statement to execute (can be any valid PostgreSQL SQL)'),
-  parameters: z.array(z.unknown()).optional().default([]).describe('Parameter values for prepared statement placeholders ($1, $2, etc.)'),
+  parameters: z.array(jsonValue).optional().default([]).describe('Parameter values for prepared statement placeholders ($1, $2, etc.)'),
   expectRows: z.boolean().optional().default(true).describe('Whether to expect rows back (false for statements like CREATE, DROP, etc.)'),
   timeout: z.number().optional().describe('Query timeout in milliseconds'),
   transactional: z.boolean().optional().default(false).describe('Whether to wrap in a transaction')
@@ -453,7 +454,7 @@ export const executeSqlTool: PostgresTool = {
     } = args as {
       connectionString?: string;
       sql: string;
-      parameters?: unknown[];
+      parameters?: JsonValue[];
       expectRows?: boolean;
       timeout?: number;
       transactional?: boolean;
