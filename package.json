@@ -24,7 +24,7 @@
     "lint": "eslint . --ext .ts",
     "test": "vitest",
     "prepublishOnly": "npm run build",
-    "postinstall": "echo 'postgres-mcp-server installed successfully! Run with: npx @henkey/postgres-mcp-server'"
+    "postinstall": "echo 'postgres-mcp-server installed successfully! Run with: npx @surkoffv/postgres-mcp-server-n8n'"
   },
   "keywords": [
     "postgresql",
@@ -46,12 +46,12 @@
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HenkDz/postgresql-mcp-server.git"
+    "url": "git+https://github.com/surkoff-v/postgresql-mcp-server-n8n.git"
   },
   "bugs": {
-    "url": "https://github.com/HenkDz/postgresql-mcp-server/issues"
+    "url": "https://github.com/surkoff-v/postgresql-mcp-server-n8n/issues"
   },
-  "homepage": "https://github.com/HenkDz/postgresql-mcp-server#readme",
+  "homepage": "https://github.com/surkoff-v/postgresql-mcp-server-n8n#readme",
   "dependencies": {
     "@modelcontextprotocol/sdk": "latest",
     "commander": "^12.1.0",
