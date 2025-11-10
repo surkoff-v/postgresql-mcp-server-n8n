@@ -3,6 +3,17 @@ import { DatabaseConnection } from '../utils/connection.js';
 import { McpError, ErrorCode } from '@modelcontextprotocol/sdk/types.js';
 import type { PostgresTool, ToolOutput, GetConnectionStringFn } from '../types/tool.js';
 
+// Helper type for JSON values that can be used as SQL parameters
+// Supports: strings, numbers, booleans, null, objects, and arrays
+const jsonValue = z.union([
+  z.string(),
+  z.number(),
+  z.boolean(),
+  z.null(),
+  z.record(z.any()),
+  z.array(z.any())
+]);
+
 // ===== EXECUTE QUERY TOOL (SELECT operations) =====
 
 const ExecuteQueryInputSchema = z.object({

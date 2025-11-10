@@ -1,7 +1,7 @@
 {
-  "name": "@henkey/postgres-mcp-server",
-  "version": "1.0.5",
-  "description": "A Model Context Protocol (MCP) server that provides comprehensive PostgreSQL database management capabilities for AI assistants",
+  "name": "@surkoffv/postgres-mcp-server",
+  "version": "1.0.5.1",
+  "description": "A Model Context Protocol (MCP) server that provides comprehensive PostgreSQL database management capabilities for AI assistants with n8n fix",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "type": "module",
@@ -39,9 +39,9 @@
     "ai-assistant"
   ],
   "author": {
-    "name": "henkey",
-    "email": "henkey@example.com",
-    "url": "https://github.com/henkey"
+    "name": "surkoffv",
+    "email": "surkoff.v@gmail.com",
+    "url": "https://github.com/surkoff-v"
   },
   "license": "AGPL-3.0",
   "repository": {
