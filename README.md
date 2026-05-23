@@ -7,8 +7,18 @@ A Model Context Protocol (MCP) server that provides comprehensive PostgreSQL dat
   <img width="380" height="200" src="https://glama.ai/mcp/servers/@HenkDz/postgresql-mcp-server/badge" alt="PostgreSQL Server MCP server" />
 </a>
 
+## 🍴 Fork Attribution
+
+This repository is a fork of [**HenkDz/postgresql-mcp-server**](https://github.com/HenkDz/postgresql-mcp-server), which itself originates from [nahmanmate/postgresql-mcp-server](https://github.com/nahmanmate/postgresql-mcp-server).
+
+This fork adds adaptations and enhancements for use with [n8n](https://n8n.io/) workflows. Full credit and thanks go to the original authors for their work.
+
+> **Note:** As required by the AGPL-3.0 license, all modifications made in this fork are open-source under the same license.
+
+---
+
 ## Features
-**🚀 What's New**: This server has been completely redesigned from 46 individual tools to 17 intelligent tools through consolidation (34→8 meta-tools) and enhancement (+4 new tools), providing better AI discovery while adding powerful data manipulation and comment management capabilities.
+**🚀 What's New**: This server has been completely redesigned from 46 individual tools to 17 intelligent tools through consolidation (34→8 meta-tools) and enhancement (+4 new tools), providing
 
 ## Quick Start
 
@@ -17,7 +27,7 @@ A Model Context Protocol (MCP) server that provides comprehensive PostgreSQL dat
 - Access to a PostgreSQL server
 - (Optional) An MCP client like Cursor or Claude for AI integration
 
-[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=postgresql-mcp&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkBoZW5rZXkvcG9zdGdyZXMtbWNwLXNlcnZlciIsIi0tY29ubmVjdGlvbi1zdHJpbmciLCJwb3N0Z3Jlc3FsOi8vdXNlcjpwYXNzd29yZEBob3N0OnBvcnQvZGF0YWJhc2UiXX0=)
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=postgresql-mcp&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkBoZW5rZXkvcG9zdGdyZXMt)
 
 ### Option 1: npm (Recommended)
 ```bash
@@ -333,3 +343,5 @@ See [Development Guide](./docs/DEVELOPMENT.md) for detailed setup instructions.
 ## License
 
 AGPLv3 License - see [LICENSE](./LICENSE) file for details.
+
+This project is a fork of [HenkDz/postgresql-mcp-server](https://github.com/HenkDz/postgresql-mcp-server), originally derived from [nahmanmate/postgresql-mcp-server](https://github.com/nahmanmate/postgresql-mcp-server). All modifications are distributed under the same AGPLv3 license as required.
